@@ -47,7 +47,7 @@ const RootQuery = new GraphQLObjectType({
                 id: { type: GraphQLString }
             },
             resolve(parentVal, args) {
-                return axios.get('http://localhost:4200/api/products/' + args.id)
+                return axios.get('http://fifi-pet-shop-api.herokuapp.com/api/products/' + args.id)
                     .then(res => res.data)
                     .then(res => res.data);
             }
@@ -55,7 +55,7 @@ const RootQuery = new GraphQLObjectType({
         getProducts: {
             type: new GraphQLList(ProductType),
             resolve(parentVal, args) {
-                return axios.get('http://localhost:4200/api/products')
+                return axios.get('http://fifi-pet-shop-api.herokuapp.com/api/products')
                     .then(res => res.data)
                     .then(res => res.data.products)
             }
